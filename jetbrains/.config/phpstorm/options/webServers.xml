@@ -1,0 +1,9 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="46a2c6de-7044-4ba7-8ebc-6db780cffff3" name="lotto.test" url="https://lara-lotto.test">
+        <fileTransfer mountedRoot="$USER_HOME$/code/web/lotto-server" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</application>

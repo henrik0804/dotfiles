@@ -1,0 +1,82 @@
+<keymap version="1" name="macOS copy" parent="Mac OS X 10.5+">
+  <action id="ActivateBookmarksToolWindow">
+    <keyboard-shortcut first-keystroke="meta 2" />
+    <keyboard-shortcut first-keystroke="ctrl 2" />
+    <keyboard-shortcut first-keystroke="meta b" />
+  </action>
+  <action id="ActivateDatabaseToolWindow">
+    <keyboard-shortcut first-keystroke="meta d" />
+  </action>
+  <action id="ActivateProjectToolWindow">
+    <keyboard-shortcut first-keystroke="meta o" />
+  </action>
+  <action id="ClickLink">
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="Force touch" />
+    <mouse-shortcut keystroke="button2" />
+  </action>
+  <action id="CommentByBlockComment">
+    <keyboard-shortcut first-keystroke="shift meta 7" />
+  </action>
+  <action id="Compare.SameVersion" />
+  <action id="CompareTwoFiles" />
+  <action id="Console.TableResult.GotoReferencingResult">
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="Force touch" />
+    <mouse-shortcut keystroke="button2" />
+  </action>
+  <action id="DatabaseView.PropertiesAction" />
+  <action id="Debug" />
+  <action id="Diff.ShowDiff" />
+  <action id="EditorCutLineEnd" />
+  <action id="EditorDown">
+    <keyboard-shortcut first-keystroke="down" />
+    <keyboard-shortcut first-keystroke="ctrl n" />
+    <keyboard-shortcut first-keystroke="ctrl j" />
+  </action>
+  <action id="EditorDuplicate" />
+  <action id="EditorLeft">
+    <keyboard-shortcut first-keystroke="left" />
+  </action>
+  <action id="EditorUp">
+    <keyboard-shortcut first-keystroke="ctrl k" />
+    <keyboard-shortcut first-keystroke="up" />
+  </action>
+  <action id="FileChooser.GotoDesktop" />
+  <action id="FixDocComment">
+    <keyboard-shortcut first-keystroke="shift ctrl 7" />
+  </action>
+  <action id="GotoBookmark2" />
+  <action id="GotoClass" />
+  <action id="GotoDeclaration">
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="Force touch" />
+    <mouse-shortcut keystroke="button2" />
+  </action>
+  <action id="Jdbc.OpenEditor.DDL">
+    <mouse-shortcut keystroke="meta button1" />
+    <mouse-shortcut keystroke="Force touch" />
+    <mouse-shortcut keystroke="button2" />
+  </action>
+  <action id="SearchEverywhereNewToolbarAction">
+    <keyboard-shortcut first-keystroke="space" second-keystroke="space" />
+  </action>
+  <action id="SendEOF" />
+  <action id="ToggleBookmark">
+    <keyboard-shortcut first-keystroke="f3" />
+    <keyboard-shortcut first-keystroke="ctrl meta b" />
+  </action>
+  <action id="ToggleBookmark7" />
+  <action id="ToggleDistractionFreeMode">
+    <keyboard-shortcut first-keystroke="shift meta k" />
+  </action>
+  <action id="Vcs.CombinedDiff.CaretToPrevBlock">
+    <keyboard-shortcut first-keystroke="up" />
+  </action>
+  <action id="Vcs.Push" />
+  <action id="VimPluginToggle">
+    <keyboard-shortcut first-keystroke="meta i" />
+  </action>
+  <action id="org.intellij.plugins.markdown.ui.actions.styling.ToggleBoldAction" />
+  <action id="org.intellij.plugins.markdown.ui.actions.styling.ToggleItalicAction" />
+</keymap>

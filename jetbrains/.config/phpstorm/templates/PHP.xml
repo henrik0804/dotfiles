@@ -1,0 +1,21 @@
+<templateSet group="PHP">
+  <template name="jsonresp" value="return response()-&gt;json([&#10;    'status' =&gt; '$Status$',&#10;    'message' =&gt; '$Message$',&#10;]);" description="json response" toReformat="false" toShortenFQNames="true">
+    <variable name="Status" expression="" defaultValue="success" alwaysStopAt="true" />
+    <variable name="Message" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="rdb" value="return redirect()-&gt;back();" description="redirect back" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP Statement" value="true" />
+    </context>
+  </template>
+  <template name="rdbw" value="return redirect()-&gt;back()-&gt;with('$KEY$', '$MESSAGE$');" description="redirect back with" toReformat="false" toShortenFQNames="true">
+    <variable name="KEY" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MESSAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP Statement" value="true" />
+    </context>
+  </template>
+</templateSet>

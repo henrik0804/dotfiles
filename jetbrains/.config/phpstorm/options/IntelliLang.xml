@@ -1,0 +1,9 @@
+<application>
+  <component name="LanguageInjectionConfiguration">
+    <injection language="InjectablePHP" injector-id="xml">
+      <display-name>php</display-name>
+      <single-file value="false" />
+      <place><![CDATA[xmlTag().withLocalName(string().equalTo("php"))]]></place>
+    </injection>
+  </component>
+</application>

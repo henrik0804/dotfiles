@@ -1,0 +1,12 @@
+<application>
+  <component name="FileTypeManager" version="19">
+    <extensionMap>
+      <mapping pattern="company_banner" type="AUTO_DETECTED" />
+      <mapping ext="mp4" type="Native" />
+      <mapping ext="woff2" type="PLAIN_TEXT" />
+      <removed_mapping ext="dockerignore" approved="true" type="DockerIgnore file" />
+      <removed_mapping ext="ignore" approved="true" type="IgnoreLang file" />
+      <removed_mapping ext="log" approved="true" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>

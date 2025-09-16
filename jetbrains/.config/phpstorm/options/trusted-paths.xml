@@ -1,0 +1,144 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$" value="true" />
+        <entry key="$USER_HOME$/.aerospace" value="true" />
+        <entry key="$USER_HOME$/.config/opencode" value="true" />
+        <entry key="$USER_HOME$/.hammerspoon" value="true" />
+        <entry key="$USER_HOME$/Library/CloudStorage/OneDrive-cre8-it/Wichtige_Unterlagen/cre8it-web-tmp-pictures/fontawesome-free-5.15.4-web/css" value="false" />
+        <entry key="$USER_HOME$/Library/CloudStorage/OneDrive-cre8-it/Wichtige_Unterlagen/cre8it-web-tmp-pictures/fontawesome-free-5.15.4-web/js" value="false" />
+        <entry key="$USER_HOME$/Library/CloudStorage/OneDrive-cre8-it/Wichtige_Unterlagen/cre8it-web-tmp-pictures/icomoon/demo-files" value="false" />
+        <entry key="$USER_HOME$/code/Berufsschule/member-management" value="true" />
+        <entry key="$USER_HOME$/code/berufsschule/member-management" value="true" />
+        <entry key="$USER_HOME$/code/berufsschule/schulprojekt" value="true" />
+        <entry key="$USER_HOME$/code/extensions/internal-tool" value="true" />
+        <entry key="$USER_HOME$/code/personal" value="true" />
+        <entry key="$USER_HOME$/code/personal/code-cube" value="true" />
+        <entry key="$USER_HOME$/code/personal/deploy-test" value="true" />
+        <entry key="$USER_HOME$/code/personal/domain-display" value="true" />
+        <entry key="$USER_HOME$/code/personal/domain-mcp" value="true" />
+        <entry key="$USER_HOME$/code/personal/energieberatung" value="true" />
+        <entry key="$USER_HOME$/code/personal/fisch-fit" value="true" />
+        <entry key="$USER_HOME$/code/personal/fuck-you" value="true" />
+        <entry key="$USER_HOME$/code/personal/lott-jonn" value="true" />
+        <entry key="$USER_HOME$/code/personal/member-management" value="true" />
+        <entry key="$USER_HOME$/code/personal/peplio" value="true" />
+        <entry key="$USER_HOME$/code/personal/sprit-pilot" value="true" />
+        <entry key="$USER_HOME$/code/personal/turso-laravel" value="true" />
+        <entry key="$USER_HOME$/code/personal/vite-config" value="true" />
+        <entry key="$USER_HOME$/code/personal/vue-layout-grid-demo" value="true" />
+        <entry key="$USER_HOME$/code/personal/vue-starter-kit" value="true" />
+        <entry key="$USER_HOME$/code/personal/workflow-weaver" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/email-storage-test" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/header-based-session" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/my-vue-app" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/review-deployment-process-test" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/shadcn-test" value="true" />
+        <entry key="$USER_HOME$/code/test-projects/tinymce-test" value="true" />
+        <entry key="$USER_HOME$/code/web/apotheke" value="true" />
+        <entry key="$USER_HOME$/code/web/automobile-tomi-api" value="true" />
+        <entry key="$USER_HOME$/code/web/ba-office" value="true" />
+        <entry key="$USER_HOME$/code/web/breeze-api-test" value="true" />
+        <entry key="$USER_HOME$/code/web/breeze-next" value="true" />
+        <entry key="$USER_HOME$/code/web/calloffice365-web" value="true" />
+        <entry key="$USER_HOME$/code/web/carbill" value="true" />
+        <entry key="$USER_HOME$/code/web/count-iframe" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-configurator" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-configurator-showcase" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-services" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-web" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-web-rebuild" value="true" />
+        <entry key="$USER_HOME$/code/web/cre8it-web-tmp" value="true" />
+        <entry key="$USER_HOME$/code/web/customer-image-manager" value="true" />
+        <entry key="$USER_HOME$/code/web/eloquent-power-joins" value="true" />
+        <entry key="$USER_HOME$/code/web/faaren-code-cosmos" value="true" />
+        <entry key="$USER_HOME$/code/web/faaren-code-cosmos/frontends/marketplace" value="true" />
+        <entry key="$USER_HOME$/code/web/famecard24" value="true" />
+        <entry key="$USER_HOME$/code/web/finanzspezi24" value="true" />
+        <entry key="$USER_HOME$/code/web/framework7" value="true" />
+        <entry key="$USER_HOME$/code/web/framework7-test" value="true" />
+        <entry key="$USER_HOME$/code/web/iframe-com" value="true" />
+        <entry key="$USER_HOME$/code/web/iframe-lead-system" value="true" />
+        <entry key="$USER_HOME$/code/web/indu-cat" value="true" />
+        <entry key="$USER_HOME$/code/web/indu-suppliers" value="true" />
+        <entry key="$USER_HOME$/code/web/indu-web" value="true" />
+        <entry key="$USER_HOME$/code/web/inertia-admin-lte-starter" value="true" />
+        <entry key="$USER_HOME$/code/web/inertia-vue3-starter" value="true" />
+        <entry key="$USER_HOME$/code/web/internal-tools" value="true" />
+        <entry key="$USER_HOME$/code/web/ionic-vue-tutorial/vue-first-app" value="true" />
+        <entry key="$USER_HOME$/code/web/lara-lotto" value="true" />
+        <entry key="$USER_HOME$/code/web/laravel-mail-export" value="true" />
+        <entry key="$USER_HOME$/code/web/livewire-from-scratch" value="true" />
+        <entry key="$USER_HOME$/code/web/lotto_project" value="true" />
+        <entry key="$USER_HOME$/code/web/machineck" value="true" />
+        <entry key="$USER_HOME$/code/web/member-checkin" value="true" />
+        <entry key="$USER_HOME$/code/web/mica-cert" value="true" />
+        <entry key="$USER_HOME$/code/web/mobile-auth-client" value="true" />
+        <entry key="$USER_HOME$/code/web/mobile-auth-test" value="true" />
+        <entry key="$USER_HOME$/code/web/mobile-auth-test/mobile-auth-client" value="true" />
+        <entry key="$USER_HOME$/code/web/my-project" value="true" />
+        <entry key="$USER_HOME$/code/web/nhz-client" value="true" />
+        <entry key="$USER_HOME$/code/web/nhz-pdf-test" value="true" />
+        <entry key="$USER_HOME$/code/web/nhz-server" value="true" />
+        <entry key="$USER_HOME$/code/web/niessen-web" value="true" />
+        <entry key="$USER_HOME$/code/web/noack-ams" value="true" />
+        <entry key="$USER_HOME$/code/web/openapi-test" value="true" />
+        <entry key="$USER_HOME$/code/web/package-test" value="true" />
+        <entry key="$USER_HOME$/code/web/pep-ki" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/breeze-app" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/coding-project" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/cre8-components" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/cre8-components-shadtw" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/first-vue-3-project" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/inertia-demo" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/inertia-latest-demo" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/member-management" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/member-management/member-management" value="true" />
+        <entry key="$USER_HOME$/code/web/personal/pest-driven-development" value="true" />
+        <entry key="$USER_HOME$/code/web/photo-gallery" value="true" />
+        <entry key="$USER_HOME$/code/web/platform" value="true" />
+        <entry key="$USER_HOME$/code/web/postmessage-test" value="true" />
+        <entry key="$USER_HOME$/code/web/pss-emergency-service" value="true" />
+        <entry key="$USER_HOME$/code/web/rankauf" value="true" />
+        <entry key="$USER_HOME$/code/web/sanctum-test" value="true" />
+        <entry key="$USER_HOME$/code/web/sas" value="true" />
+        <entry key="$USER_HOME$/code/web/sedcard24-com" value="true" />
+        <entry key="$USER_HOME$/code/web/sedcard24-de" value="true" />
+        <entry key="$USER_HOME$/code/web/self-storage-app" value="true" />
+        <entry key="$USER_HOME$/code/web/service-core" value="true" />
+        <entry key="$USER_HOME$/code/web/testingfile" value="true" />
+        <entry key="$USER_HOME$/code/web/todo-list" value="true" />
+        <entry key="$USER_HOME$/code/web/todolist/todolist" value="true" />
+        <entry key="$USER_HOME$/code/web/tomi-carsale-app" value="true" />
+        <entry key="$USER_HOME$/code/web/tomi-carsale-plugin" value="true" />
+        <entry key="$USER_HOME$/code/web/tomi-carsale-wp" value="true" />
+        <entry key="$USER_HOME$/code/web/tomi-detail-carplugin" value="true" />
+        <entry key="$USER_HOME$/code/web/tp" value="true" />
+        <entry key="$USER_HOME$/code/web/tutorial-blog" value="true" />
+        <entry key="$USER_HOME$/code/web/unlighthouse" value="true" />
+        <entry key="$USER_HOME$/code/web/uvv-visualization" value="true" />
+        <entry key="$USER_HOME$/code/web/vincrease" value="true" />
+        <entry key="$USER_HOME$/code/web/vue-3-typescript" value="true" />
+        <entry key="$USER_HOME$/code/web/vue-test" value="true" />
+        <entry key="$USER_HOME$/code/web/waldcamping" value="true" />
+        <entry key="$USER_HOME$/code/web/webshop-api-server" value="true" />
+        <entry key="$USER_HOME$/code/web/webshop-dev" value="true" />
+        <entry key="$USER_HOME$/code/web/webshop2020" value="true" />
+        <entry key="$USER_HOME$/code/web/yopin" value="true" />
+        <entry key="$USER_HOME$/code/web/yopin-app" value="true" />
+        <entry key="$USER_HOME$/code/web/yopin-web" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="Trusted.Paths.Settings">
+    <option name="TRUSTED_PATHS">
+      <list>
+        <option value="$USER_HOME$/code/web" />
+        <option value="$USER_HOME$/code/test-projects" />
+        <option value="$USER_HOME$/code/berufsschule" />
+        <option value="$USER_HOME$/code/personal" />
+      </list>
+    </option>
+  </component>
+</application>

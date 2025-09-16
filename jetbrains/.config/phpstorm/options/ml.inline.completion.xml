@@ -1,0 +1,6 @@
+<application>
+  <component name="MLCompletionState">
+    <option name="multiLineAllowed" value="false" />
+    <option name="triggerOnTypings" value="false" />
+  </component>
+</application>

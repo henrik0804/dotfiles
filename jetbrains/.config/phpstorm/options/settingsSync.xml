@@ -1,0 +1,61 @@
+<application>
+  <component name="SettingsSyncSettings">
+    <option name="disabledCategories">
+      <list>
+        <option value="CODE" />
+        <option value="PLUGINS" />
+      </list>
+    </option>
+    <option name="disabledSubcategories">
+      <map>
+        <entry key="PLUGINS">
+          <value>
+            <list>
+              <option value="bundled" />
+              <option value="JavaScriptDebugger" />
+              <option value="tailwind.fold.tailwind-fold" />
+              <option value="com.jetbrains.space" />
+              <option value="Subversion" />
+              <option value="com.intellij.copyright" />
+              <option value="com.intellij.kubernetes" />
+              <option value="com.intellij.ideolog" />
+              <option value="IdeaVIM" />
+              <option value="Key Promoter X" />
+              <option value="hunspell" />
+              <option value="com.intellij.swagger" />
+              <option value="com.jetbrains.restClient" />
+              <option value="Docker" />
+              <option value="com.laravel_idea.tailwind" />
+              <option value="com.intellij.react" />
+              <option value="dev.blachut.svelte.lang" />
+              <option value="org.jetbrains.plugins.vue" />
+              <option value="Karma" />
+              <option value="com.github.copilot" />
+              <option value="mobi.hsz.idea.gitignore" />
+              <option value="org.jetbrains.security.package-checker" />
+              <option value="com.jetbrains.php.phpspec" />
+              <option value="com.jetbrains.php.drupal" />
+              <option value="com.jetbrains.twig" />
+              <option value="com.chrisrm.idea.MaterialThemeUI" />
+              <option value="com.jetbrains.php.wordPress" />
+              <option value="com.intellij.php.psalm" />
+              <option value="com.jetbrains.php.codeception" />
+              <option value="nl.deschepers.laraveltinker" />
+              <option value="de.espend.idea.php.annotation" />
+              <option value="com.intellij.php.tools.quality.phpstan" />
+              <option value="com.jetbrains.php.blade" />
+              <option value="com.laravel_idea.plugin" />
+              <option value="com.mallowigi" />
+              <option value="com.pestphp.pest-intellij" />
+              <option value="org.jetbrains.plugins.astro" />
+              <option value="tv.twelvetone.intellij.plugins.intellivue" />
+              <option value="de.marhali.easyi18n" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="migrationFromOldStorageChecked" value="true" />
+    <option name="syncEnabled" value="false" />
+  </component>
+</application>

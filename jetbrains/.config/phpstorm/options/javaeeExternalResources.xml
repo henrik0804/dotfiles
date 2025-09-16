@@ -1,0 +1,6 @@
+<application>
+  <component name="ExternalResourceManagerImpl">
+    <resource url="https://schema.phpunit.de/10.0/phpunit.xsd" location="$USER_HOME$/Library/Caches/JetBrains/PhpStorm2024.3/extResources/4a917807_phpunit.xsd" />
+    <resource url="https://schema.phpunit.de/11.0/phpunit.xsd" location="$USER_HOME$/Library/Caches/JetBrains/PhpStorm2024.3/extResources/a46ce248_phpunit.xsd" />
+  </component>
+</application>
