@@ -33,12 +33,10 @@ brew "fzf"
 brew "gcc"
 # GitHub command-line tool
 brew "gh"
-# OpenType text shaping engine
-brew "harfbuzz"
-# Framework for layout and rendering of i18n text
-brew "pango"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Subtitle renderer for the ASS/SSA subtitle format
@@ -53,6 +51,8 @@ brew "neovim"
 brew "openssl@1.1"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3.0"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # General-purpose scripting language
 brew "php"
 # Execute binaries from Python packages in isolated environments
@@ -65,6 +65,8 @@ brew "powerlevel10k"
 brew "rclone"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # UNIX shell (command interpreter)
