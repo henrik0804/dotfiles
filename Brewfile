@@ -84,6 +84,8 @@ brew "microsoft/mssql-release/mssql-tools"
 # PCOV PHP extension
 brew "shivammathur/extensions/pcov@8.4"
 brew "tursodatabase/tap/turso"
+# Command-line interface for 1Password
+cask "1password-cli"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
 # Terminal emulator that uses platform-native UI and GPU acceleration
