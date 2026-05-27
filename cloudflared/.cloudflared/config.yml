@@ -1,0 +1,15 @@
+tunnel: internal-tools
+credentials-file: /Users/henrik/.cloudflared/7cad62df-2c79-44bb-b54e-31c590201830.json
+
+ingress:
+  - hostname: test-jakob.henrik-schumacher.de
+    service: https://waldcamping.test
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: waldcamping.test
+  - hostname: internal.henrik-schumacher.de
+    service: https://internal-tools.test
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: internal-tools.test
+  - service: http_status:404

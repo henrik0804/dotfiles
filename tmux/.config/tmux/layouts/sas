@@ -1,0 +1,47 @@
+# ~/.config/tmux/layouts/sas
+session=${1:-"sas"}
+
+# --- WINDOW 1: GENERAL ---
+tmux rename-window -t "$session:1" 'general'
+tmux send-keys -t "$session:1" 'clear' C-m
+
+# --- WINDOW 2: SERVICES ---
+tmux new-window -t "$session" -n 'services'
+
+# STARTING STATE: One big pane. 
+# We are currently in pane 0 (which will become Left side).
+
+# 1. SPLIT HORIZONTALLY (Left | Right)
+# Result: Focus is now on the NEW Right pane.
+tmux split-window -h -t "$session:2"
+
+# 2. SPLIT RIGHT PANE VERTICALLY (Top Right | Bottom Right)
+# Result: Focus is on Bottom Right.
+tmux split-window -v -t "$session:2" 
+
+# SEND COMMAND TO BOTTOM RIGHT
+tmux send-keys 'nvm use 14 && laravel-echo-server start' C-m
+
+# 3. MOVE FOCUS TO TOP RIGHT
+tmux select-pane -U
+# SEND COMMAND TO TOP RIGHT
+tmux send-keys 'nvm use 14 && npm run watch' C-m
+
+# 4. MOVE FOCUS TO LEFT SIDE
+tmux select-pane -L
+
+# 5. SPLIT LEFT PANE VERTICALLY (Top Left | Bottom Left)
+# Result: Focus is on Bottom Left.
+tmux split-window -v -t "$session:2"
+
+# 6. MOVE FOCUS TO TOP LEFT
+tmux select-pane -U
+# SEND COMMAND TO TOP LEFT
+tmux send-keys 'sauelsvpn' C-m
+
+# 7. MOVE FOCUS TO BOTTOM LEFT (Empty, user wants focus here)
+tmux select-pane -D
+
+# --- FINAL FOCUS ---
+# Go back to Window 1 (General)
+tmux select-window -t "$session:1"

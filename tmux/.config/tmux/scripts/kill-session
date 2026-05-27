@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# 1. List sessions, filter out the current one (optional), and pick via fzf
+# -F '#{session_name}' extracts just the name
+session=$(tmux list-sessions -F '#{session_name}' | fzf --prompt="Kill Session: ")
+
+if [[ -z "$session" ]]; then
+  exit 0
+fi
+
+tmux kill-session -t "$session"

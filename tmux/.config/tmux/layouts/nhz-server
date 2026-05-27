@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+session=${1:-"$(basename $(pwd) | tr . _)"}
+
+# --- WINDOW 1: GENERAL ---
+tmux rename-window -t "$session:1" 'general'
+tmux send-keys -t "$session:1" 'clear' C-m
+
+# --- WINDOW 2: SERVICES ---
+tmux new-window -t "$session" -n 'services'
+
+# STARTING STATE: One big pane.
+
+# 1. SPLIT HORIZONTALLY (Left | Right)
+# Result: Focus is now on the NEW Right pane.
+
+tmux split-window -h -t "$session:2"
+
+# 2. SPLIT RIGHT PANE VERTICALLY (Top Right | Bottom Right)
+# Result: Focus is on Bottom Right.
+tmux split-window -v -t "$session:2"
+
+# 3. MOVE FOCUS TO TOP RIGHT
+tmux select-pane -U
+# SEND COMMAND TO TOP RIGHT
+tmux send-keys 'herd use 8.4' C-m
+
+# 4. MOVE FOCUS TO LEFT SIDE
+tmux select-pane -L
+
+# 5. SPLIT LEFT PANE VERTICALLY (Top Left | Bottom Left)
+# Result: Focus is on Bottom Left.
+tmux split-window -v -t "$session:2"
+
+tmux send-keys 'phps' C-m
+
+# --- WINDOW 3: CLIENT ---
+tmux new-window -t "$session" -n 'client'
+
+tmux split-window -h -t "$session:3"
+tmux send-keys 'kill -9 $(lsof -ti :5173 2>/dev/null) || true' C-m
+tmux send-keys 'npm run dev' C-m
+
+# --- FINAL FOCUS ---
+# Go back to Window 1 (General)
+tmux select-window -t "$session:1"

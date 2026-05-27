@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# 1. DEFINE YOUR SEARCH PATHS
+# Change "~/dev" to wherever you actually keep your code!
+# You can add multiple paths: find ~/dev ~/work ~/personal ...
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find ~/code/web ~/code/personal -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+# Create a clean session name (replace dots with underscores)
+session_name=$(basename "$selected" | tr . _)
+
+# 2. CREATE SESSION IF IT DOESN'T EXIST
+# We use -d to create it "detached" so we don't get sucked in yet
+if ! tmux has-session -t="$session_name" 2>/dev/null; then
+  tmux new-session -ds "$session_name" -c "$selected"
+
+  # 3. RUN CUSTOM SETUP (LAYOUTS)
+  layout_file="$HOME/.config/tmux/layouts/$session_name"
+
+  if [[ -f "$layout_file" ]]; then
+    tmux send-keys -t "$session_name" "sh $layout_file" C-m
+  elif [[ -f "$selected/.tmux-setup" ]]; then
+    tmux send-keys -t "$session_name" "sh .tmux-setup" C-m
+  else
+    tmux send-keys -t "$session_name" "clear; ls" C-m
+  fi
+fi
+
+# 4. SWITCH OR ATTACH (The logic that fixes your error)
+if [[ -n $TMUX ]]; then
+  # If inside tmux, switch the existing client
+  tmux switch-client -t "$session_name"
+else
+  # If outside tmux, attach to the new session
+  tmux attach-session -t "$session_name"
+fi

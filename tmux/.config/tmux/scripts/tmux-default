@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+session="default"
+path="$HOME"
+
+# 1. Create the session if it doesn't exist
+if ! tmux has-session -t="$session" 2> /dev/null; then
+    tmux new-session -ds "$session" -c "$path"
+    # Optional: Load a layout for your home session
+    # tmux send-keys -t "$session" "nvim ~/.config/tmux/tmux.conf" C-m
+fi
+
+# 2. Switch (if inside tmux) or Attach (if outside)
+if [[ -n $TMUX ]]; then
+    tmux switch-client -t "$session"
+else
+    tmux attach-session -t "$session"
+fi

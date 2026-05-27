@@ -1,0 +1,14 @@
+.DS_Store
+.ansible-vault-password
+.vault-password
+
+# Never commit decrypted secret material. Encrypted Ansible Vault files are OK.
+secrets/**
+!secrets/
+!secrets/**/
+!secrets/.keep
+!secrets/**/*.vault
+nvim/.config/nvim/lazy-lock.json
+
+# Local backups
+*.bak

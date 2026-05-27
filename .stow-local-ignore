@@ -1,0 +1,9 @@
+Brewfile
+*.sh
+README.md
+.git
+.gitignore
+secrets/.keep
+*.zip
+.DS_Store
+jetbrains/phpstorm

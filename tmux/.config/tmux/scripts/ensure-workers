@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+session=${1:-"$(basename $(pwd) | tr . _)"}
+
+if tmux list-windows -t "$session" -F '#{window_name}' | grep -q "^workers$"; then
+  echo "Restarting workers..."
+  tmux kill-window -t "$session:workers"
+fi
+
+tmux new-window -t "$session" -n 'workers'
+
+# Setup the panes (Split vertically)
+# Pane 1 (Top): Schedule Worker
+tmux send-keys -t "$session:workers" 'herd php artisan schedule:work' C-m
+
+# Pane 2 (Bottom): Queue Worker
+tmux split-window -v -t "$session:workers"
+tmux send-keys -t "$session:workers" 'herd php artisan queue:work' C-m
+
+tmux select-layout -t "$session:workers" even-vertical
+
+tmux select-window -t "$session:1"
