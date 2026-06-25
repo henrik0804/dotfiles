@@ -44,7 +44,15 @@ brew bundle add <formula-or-cask>
 brew bundle --file Brewfile
 ```
 
-For apps from outside Homebrew, prefer creating a small dedicated script and calling it from `install.sh` only if it truly cannot be represented in `Brewfile`.
+For global npm CLI packages, add them to `npm-global.txt` instead of editing `install.sh`:
+
+```text
+@earendil-works/pi-coding-agent
+```
+
+`install.sh` installs those with `npm install -g --ignore-scripts` after nvm is available.
+
+For apps from outside Homebrew and npm, prefer creating a small dedicated script and calling it from `install.sh` only if it truly cannot be represented in `Brewfile` or `npm-global.txt`.
 
 ## Adding dotfiles
 
@@ -64,6 +72,8 @@ Then run:
 
 No `stow.sh` edit is required for new packages.
 
+Pi configuration is tracked as the `pi` Stow package. It includes `~/.pi/agent/settings.json`, local extensions, and themes. Runtime/session/cache state is intentionally excluded, and `~/.pi/agent/auth.json` is restored from Ansible Vault.
+
 ## Secrets with Ansible Vault
 
 Secrets live in `secrets/` as encrypted `.vault` files. The path under `secrets/` mirrors the destination path in `$HOME`; the `.vault` suffix is removed when decrypted.
@@ -75,6 +85,7 @@ mkdir -p secrets/.ssh secrets/.config/rclone secrets/.cloudflared
 ansible-vault encrypt --output secrets/.ssh/config.vault ~/.ssh/config
 ansible-vault encrypt --output secrets/.ssh/id_ed25519.vault ~/.ssh/id_ed25519
 ansible-vault encrypt --output secrets/.config/rclone/rclone.conf.vault ~/.config/rclone/rclone.conf
+ansible-vault encrypt --output secrets/.pi/agent/auth.json.vault ~/.pi/agent/auth.json
 ```
 
 See `ansible-secret-candidates.md` for the repo scan and suggested secret migrations.
@@ -105,7 +116,7 @@ On a fresh machine, use the 1Password-backed flag:
 ./install.sh --vault-password-1p
 ```
 
-That falls back to the default 1Password ref above. To use a different 1Password field:
+For a full restore, 1Password is the only manual bootstrap dependency: the script installs the 1Password app and CLI through Homebrew before decrypting secrets, then pauses if needed so you can sign in/unlock 1Password. After that it reads the vault password from the default ref above. To use a different 1Password field:
 
 ```bash
 ./install.sh --vault-password-1p --vault-1p-ref 'op://Private/some-other-item/password'

@@ -27,6 +27,7 @@ The following should be encrypted with Ansible Vault and not committed as plaint
 | `~/.cloudflared/*.json` | `secrets/.cloudflared/<tunnel-id>.json.vault` | Cloudflare tunnel credentials. |
 | `~/Library/Application Support/Tunnelblick/Configurations/SauelsVPN.tblk/Contents/Resources/config.ovpn` | `secrets/Library/Application Support/Tunnelblick/Configurations/SauelsVPN.tblk/Contents/Resources/config.ovpn.vault` | Sauels VPN profile. |
 | `~/.config/opencode/opencode.json` | `secrets/.config/opencode/opencode.json.vault` | Use if it contains provider keys, MCP API keys, OAuth material, or other local-only account config. |
+| `~/.pi/agent/auth.json` | `secrets/.pi/agent/auth.json.vault` | Pi provider API keys / auth state. |
 | `~/.config/gh/hosts.yml` | `secrets/.config/gh/hosts.yml.vault` | Only needed if the file contains `oauth_token` or other auth state. Current tracked file has no token. |
 | `~/.local/share/atuin/key` / Atuin auth files | matching `secrets/.../*.vault` path | Atuin sync encryption/auth material, if present on a machine. Current tracked Atuin config has no secret. |
 

@@ -1,12 +1,6 @@
 import { tool } from "@opencode-ai/plugin"
 
 const API_BASE = "https://internal.cre8-it.de/api/v1/clickup/tasks"
-const BEARER_TOKEN = process.env.CLICKUP_INTERNAL_TOOLS_TOKEN
-
-if (!BEARER_TOKEN) {
-  throw new Error("CLICKUP_INTERNAL_TOOLS_TOKEN is required")
-}
-
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
 interface TaskStatus {
@@ -94,13 +88,24 @@ export default tool({
       .describe("Include Subtasks"),
   },
   async execute({ taskId, includeSubtasks }) {
+    const bearerToken = process.env.CLICKUP_INTERNAL_TOOLS_TOKEN
+
+    if (!bearerToken) {
+      return `## ClickUp Task Fetch Error
+
+**Task ID**: ${taskId}
+**Error**: CLICKUP_INTERNAL_TOOLS_TOKEN is not set.
+
+> Set CLICKUP_INTERNAL_TOOLS_TOKEN in the environment before using this tool.`
+    }
+
     const url = `${API_BASE}/${taskId}?include_subtasks=${includeSubtasks ? "true" : "false"}`
 
     try {
       const response = await fetch(url, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${BEARER_TOKEN}`,
+          Authorization: `Bearer ${bearerToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

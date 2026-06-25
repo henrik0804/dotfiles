@@ -111,10 +111,16 @@ for source in "${vault_files[@]}"; do
   ansible-vault view "${vault_args[@]}" "$source" >"$destination"
 
   case "$relative" in
+    .ssh/*)
+      chmod 700 "$HOME/.ssh"
+      ;;
+  esac
+
+  case "$relative" in
     *.pub)
       chmod 644 "$destination"
       ;;
-    .ssh/id_*|.ssh/config)
+    .ssh/id_*|.ssh/config|.pi/agent/auth.json|.cloudflared/*|.config/rclone/rclone.conf)
       chmod 600 "$destination"
       ;;
   esac

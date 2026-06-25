@@ -1,0 +1,2 @@
+# Global npm CLI packages installed by install.sh
+@earendil-works/pi-coding-agent

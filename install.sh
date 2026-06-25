@@ -102,8 +102,32 @@ if ! command -v brew >/dev/null 2>&1; then
   fi
 fi
 
+trust_homebrew_taps() {
+  local tap
+  local taps=(
+    anomalyco/tap
+    felixkratz/formulae
+    libsql/sqld
+    microsoft/git
+    microsoft/mssql-release
+    modem-dev/tap
+    ngrok/ngrok
+    nicoverbruggen/cask
+    nikitabobko/tap
+    shivammathur/extensions
+    shivammathur/php
+    tursodatabase/tap
+  )
+
+  echo "Trusting Homebrew taps used by the Brewfile..."
+  for tap in "${taps[@]}"; do
+    brew trust --tap "$tap"
+  done
+}
+
 echo "Installing Homebrew packages..."
 export HOMEBREW_ACCEPT_EULA="y"
+trust_homebrew_taps
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
 if ! command -v stow >/dev/null 2>&1; then
@@ -116,8 +140,34 @@ if [ -f "$DOTFILES_DIR/stow.sh" ]; then
   bash "$DOTFILES_DIR/stow.sh"
 fi
 
+ensure_1password_ready() {
+  if [ "$use_1password_vault_password" != "1" ]; then
+    return
+  fi
+
+  if ! command -v op >/dev/null 2>&1; then
+    echo "1Password CLI was not installed by Homebrew; cannot read vault password." >&2
+    exit 1
+  fi
+
+  if op read "$vault_1password_ref" >/dev/null 2>&1; then
+    return
+  fi
+
+  echo "1Password is required to decrypt dotfiles secrets."
+  echo "Sign in to 1Password and unlock it, then press Enter to continue."
+  open -a "1Password" >/dev/null 2>&1 || true
+  read -r _
+
+  if ! op read "$vault_1password_ref" >/dev/null; then
+    echo "Could not read vault password from 1Password ref: $vault_1password_ref" >&2
+    exit 1
+  fi
+}
+
 if [ -f "$DOTFILES_DIR/secrets.sh" ]; then
   echo "Fetching secrets..."
+  ensure_1password_ready
   secrets_args=()
   if [ "$use_1password_vault_password" = "1" ]; then
     secrets_args+=(--use-1password-vault-password --1password-ref "$vault_1password_ref")
@@ -130,12 +180,44 @@ if [ -f "$DOTFILES_DIR/macos.sh" ]; then
   bash "$DOTFILES_DIR/macos.sh"
 fi
 
-if ! command -v nvm >/dev/null 2>&1 && [ ! -s "$HOME/.nvm/nvm.sh" ]; then
+export NVM_DIR="$HOME/.nvm"
+
+if [ ! -s "$NVM_DIR/nvm.sh" ]; then
   echo "Installing nvm..."
   zsh -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
 fi
 
-export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
+
+if [ -f "$DOTFILES_DIR/npm-global.txt" ]; then
+  if ! command -v npm >/dev/null 2>&1 && command -v nvm >/dev/null 2>&1; then
+    echo "Installing latest LTS Node for global npm packages..."
+    nvm install --lts
+  fi
+
+  if command -v npm >/dev/null 2>&1; then
+    npm_packages=()
+    while IFS= read -r package; do
+      package="${package%%#*}"
+      package="$(printf '%s' "$package" | xargs)"
+      [ -n "$package" ] && npm_packages+=("$package")
+    done <"$DOTFILES_DIR/npm-global.txt"
+
+    if [ "${#npm_packages[@]}" -gt 0 ]; then
+      echo "Installing global npm packages..."
+      npm install -g --ignore-scripts "${npm_packages[@]}"
+    fi
+  else
+    echo "npm not found. Skipping global npm packages." >&2
+  fi
+fi
+
+if [ -f "$DOTFILES_DIR/skills.sh" ]; then
+  echo "Installing agent skills..."
+  bash "$DOTFILES_DIR/skills.sh"
+fi
 
 if [ -f "$DOTFILES_DIR/repos.sh" ]; then
   echo "Fetching default repos..."

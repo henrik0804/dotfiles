@@ -1,0 +1,27 @@
+{
+  "lastChangelogVersion": "0.75.5",
+  "defaultProvider": "opencode",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "low",
+  "hideThinkingBlock": false,
+  "theme": "catppuccin-macchiato",
+  "treeFilterMode": "no-tools",
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-extmgr",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
+    }
+  ],
+  "enabledModels": [
+    "opencode/claude-sonnet-4-6",
+    "opencode/gemini-3-flash",
+    "opencode/gemini-3.1-pro",
+    "opencode/claude-opus-4-7",
+    "opencode/kimi-k2.6",
+    "opencode/gpt-5.5",
+    "opencode/claude-opus-4-6",
+    "opencode/glm-5.1"
+  ]
+}

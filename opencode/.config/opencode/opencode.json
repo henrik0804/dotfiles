@@ -4,6 +4,12 @@
     "@plannotator/opencode@latest"
   ],
   "mcp": {
+    "solo": {
+      "type": "local",
+      "command": [
+        "/Applications/Solo.app/Contents/MacOS/mcp"
+      ]
+    },
     "laravel-boost": {
       "type": "local",
       "command": [

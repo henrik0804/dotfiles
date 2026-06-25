@@ -1,6 +1,7 @@
 Brewfile
 *.sh
 README.md
+npm-global.txt
 .git
 .gitignore
 secrets/.keep

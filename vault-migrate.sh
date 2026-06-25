@@ -45,6 +45,7 @@ encrypt_if_present "$HOME/.ssh/id_ed25519.pub" "secrets/.ssh/id_ed25519.pub.vaul
 encrypt_if_present "$HOME/.ssh/config" "secrets/.ssh/config.vault"
 encrypt_if_present "$HOME/.config/rclone/rclone.conf" "secrets/.config/rclone/rclone.conf.vault"
 encrypt_if_present "$HOME/.cloudflared/cert.pem" "secrets/.cloudflared/cert.pem.vault"
+encrypt_if_present "$HOME/.pi/agent/auth.json" "secrets/.pi/agent/auth.json.vault"
 
 for credentials in "$HOME"/.cloudflared/*.json; do
   [ -e "$credentials" ] || continue

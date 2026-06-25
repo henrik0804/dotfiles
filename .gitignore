@@ -12,3 +12,11 @@ nvim/.config/nvim/lazy-lock.json
 
 # Local backups
 *.bak
+
+# Agent skills are installed from github.com/henrik0804/agent-skills via skills.sh.
+# Do not track generated/symlinked skill installs in this dotfiles repo.
+opencode/.config/opencode/skill/
+opencode/.config/opencode/skills/
+pi/.pi/agent/skills/
+codex/.codex/skills/
+claude/.claude/skills/
