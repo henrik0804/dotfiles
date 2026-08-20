@@ -52,6 +52,8 @@ brew "libfido2"
 brew "ncspot"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Parser generator used by nvim-treesitter to compile grammars
+brew "tree-sitter-cli"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Cryptography and SSL/TLS Toolkit
