@@ -2,6 +2,10 @@
   "mcpServers": {
     "solo": {
       "command": "/Applications/Solo.app/Contents/MacOS/mcp"
+    },
+    "executor": {
+      "url": "https://executor.sh/henrik-s-organization/mcp",
+      "auth": "oauth"
     }
   }
 }

@@ -1,0 +1,18 @@
+{
+  "theme": {
+    "name": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": false,
+    "thinking": "show"
+  },
+  "animations": true,
+  "mouse": true,
+  "tabs": {
+    "enabled": false
+  }
+}
