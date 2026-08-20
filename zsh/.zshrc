@@ -4,16 +4,23 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 
 # Path setup
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
+[[ -n "${GOROOT:-}" ]] && export PATH="$PATH:$GOROOT/bin"
 export PATH="/Users/Shared/Herd/services/mysql/8.0.36/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-export PATH="~/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Language and editor settings
 # export LANG=en_US.UTF-8
@@ -24,6 +31,7 @@ export PATH="~/.composer/vendor/bin:$PATH"
 alias ll="ls -la"
 
 alias phps="phpstorm ."
+alias phpl="phpstormlight ."
 alias webs="webstorm ."
 alias golnd="goland ."
 alias nv="nvim ."
@@ -87,11 +95,8 @@ brew() {
   fi
 }
 
-# Syntax highlighting (standalone)
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # zoxide
-eval "$(zoxide init zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -118,12 +123,12 @@ fpath=(/Users/henrik/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+[[ -r /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme ]] && source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 
@@ -131,13 +136,17 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export HERD_PHP_85_INI_SCAN_DIR="/Users/henrik/Library/Application Support/Herd/config/php/85/"
 
 # 1Password autocompletion
-eval "$(op completion zsh)"; compdef _op op
+if (( $+commands[op] )); then
+  eval "$(op completion zsh)"
+  compdef _op op
+fi
 
-source ~/.zsh-scripts/gitprune.zsh
+[[ -r ~/.zsh-scripts/gitprune.zsh ]] && source ~/.zsh-scripts/gitprune.zsh
+[[ -r ~/.zsh-scripts/picommit.zsh ]] && source ~/.zsh-scripts/picommit.zsh
 
-. "$HOME/.atuin/bin/env"
+[[ -r "$HOME/.atuin/bin/env" ]] && . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+(( $+commands[atuin] )) && eval "$(atuin init zsh)"
 
 # bun completions
 [ -s "/Users/henrik/.bun/_bun" ] && source "/Users/henrik/.bun/_bun"
@@ -147,7 +156,10 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 
-export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+if [[ -x /usr/libexec/java_home ]]; then
+  JAVA_HOME="$(/usr/libexec/java_home -v 17 2>/dev/null || true)"
+  [[ -n "$JAVA_HOME" ]] && export JAVA_HOME
+fi
  
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
@@ -158,8 +170,6 @@ export PATH="/Users/henrik/.antigravity/antigravity/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/henrik/.lmstudio/bin"
 # End of LM Studio CLI section
-
-
 
 # 1. The Function
 ocw() {
