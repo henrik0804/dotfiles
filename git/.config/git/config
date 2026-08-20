@@ -7,7 +7,10 @@
 
 [user]
 	name = Henrik Schumacher
-	email = henrik.schumacher@cre8-it.de
+	email = 110597078+henrik0804@users.noreply.github.com
+
+[includeIf "gitdir:~/code/web/"]
+	path = ~/.config/git/work
 
 
 [core]
@@ -24,7 +27,7 @@
 	insteadOf = "home:"
 
 [url "git@github.com:cre8-it/"]
-	inteadOf = "c8:"
+	insteadOf = "c8:"
 
 
 [status]

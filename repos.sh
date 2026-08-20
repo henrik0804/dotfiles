@@ -6,6 +6,7 @@ set -euo pipefail
 COMPANY_DIR="$HOME/code/web"
 PERSONAL_DIR="$HOME/code/personal"
 INCLUDE_SAUELS_REPOS="${DOTFILES_WITH_SAUELS_REPOS:-0}"
+INCLUDE_WORK_REPOS="${DOTFILES_WITH_WORK_REPOS:-0}"
 
 mkdir -p "$COMPANY_DIR"
 mkdir -p "$PERSONAL_DIR"
@@ -69,9 +70,13 @@ clone_or_update() {
 
 echo "Installing/Updating GitHub repos..."
 
-for repo in "${COMPANY_REPOS[@]}"; do
-  clone_or_update "$repo" "$COMPANY_DIR"
-done
+if [ "$INCLUDE_WORK_REPOS" = "1" ]; then
+  for repo in "${COMPANY_REPOS[@]}"; do
+    clone_or_update "$repo" "$COMPANY_DIR"
+  done
+else
+  yellow "Skipping work repositories. Set DOTFILES_WITH_WORK_REPOS=1 or run install.sh --with-work-repos to enable."
+fi
 
 if [ "$INCLUDE_SAUELS_REPOS" = "1" ]; then
   for repo in "${SAUELS_REPOS[@]}"; do

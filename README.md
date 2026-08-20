@@ -20,6 +20,7 @@ Or enable only individual pieces:
 
 ```bash
 ./install.sh --with-sauels-repos
+./install.sh --with-work-repos
 ./install.sh --with-vpn
 ./install.sh --with-legacy-node
 ```
@@ -30,9 +31,9 @@ Or enable only individual pieces:
 2. run `brew bundle --file Brewfile`
 3. stow dotfile packages into `$HOME`
 4. decrypt any Ansible Vault secrets from `secrets/**/*.vault`
-5. run macOS defaults and generic repo cloning when present
+5. run macOS defaults and personal repo cloning when present
 
-By default, it skips Sauels repositories, Tunnelblick/VPN setup, and legacy Node 14 setup. Use `./install.sh --help` to see all flags.
+By default, it skips work and Sauels repositories, Tunnelblick/VPN setup, and legacy Node 14 setup. Use `./install.sh --help` to see all flags.
 
 ## Adding software
 
@@ -70,7 +71,19 @@ Then run:
 ./stow.sh
 ```
 
-No `stow.sh` edit is required for new packages.
+Packages are explicitly listed in `stow.sh` so unrelated top-level directories
+cannot accidentally be linked into `$HOME`. Add a new package to that list when
+you create it.
+
+If existing real files conflict with the repository versions, preserve them and
+replace them with Stow links using:
+
+```bash
+./stow.sh --backup-conflicts
+```
+
+Divergent files are moved under `~/.dotfiles-backups/`; identical copies are
+safely replaced with links.
 
 Pi configuration is tracked as the `pi` Stow package. It includes `~/.pi/agent/settings.json`, local extensions, and themes. Runtime/session/cache state is intentionally excluded, and `~/.pi/agent/auth.json` is restored from Ansible Vault.
 

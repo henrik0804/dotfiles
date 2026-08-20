@@ -9,6 +9,7 @@ Default install covers the generic machine setup only.
 
 Options:
   --include-sauels       Enable all Sauels-specific setup below
+  --with-work-repos      Clone/update work repositories
   --with-sauels-repos    Clone/update Sauels Frische Wurst repositories
   --with-vpn             Install Tunnelblick and the Sauels VPN profile
   --with-legacy-node     Run legacy Node 14 / laravel-echo-server setup
@@ -19,6 +20,7 @@ Options:
 
 Environment equivalents:
   DOTFILES_INCLUDE_SAUELS=1
+  DOTFILES_WITH_WORK_REPOS=1
   DOTFILES_WITH_SAUELS_REPOS=1
   DOTFILES_WITH_VPN=1
   DOTFILES_WITH_LEGACY_NODE=1
@@ -29,6 +31,7 @@ EOF
 
 include_sauels="${DOTFILES_INCLUDE_SAUELS:-0}"
 with_sauels_repos="${DOTFILES_WITH_SAUELS_REPOS:-0}"
+with_work_repos="${DOTFILES_WITH_WORK_REPOS:-0}"
 with_vpn="${DOTFILES_WITH_VPN:-0}"
 with_legacy_node="${DOTFILES_WITH_LEGACY_NODE:-0}"
 use_1password_vault_password="${DOTFILES_USE_1PASSWORD_VAULT_PASSWORD:-0}"
@@ -41,6 +44,9 @@ while [ "$#" -gt 0 ]; do
       ;;
     --with-sauels-repos)
       with_sauels_repos=1
+      ;;
+    --with-work-repos)
+      with_work_repos=1
       ;;
     --with-vpn)
       with_vpn=1
@@ -73,6 +79,7 @@ while [ "$#" -gt 0 ]; do
 done
 
 if [ "$include_sauels" = "1" ]; then
+  with_work_repos=1
   with_sauels_repos=1
   with_vpn=1
   with_legacy_node=1
@@ -221,7 +228,9 @@ fi
 
 if [ -f "$DOTFILES_DIR/repos.sh" ]; then
   echo "Fetching default repos..."
-  DOTFILES_WITH_SAUELS_REPOS="$with_sauels_repos" bash "$DOTFILES_DIR/repos.sh"
+  DOTFILES_WITH_WORK_REPOS="$with_work_repos" \
+    DOTFILES_WITH_SAUELS_REPOS="$with_sauels_repos" \
+    bash "$DOTFILES_DIR/repos.sh"
 fi
 
 cd "$DOTFILES_DIR"
