@@ -12,4 +12,17 @@ ingress:
     originRequest:
       noTLSVerify: true
       httpHostHeader: internal-tools.test
+  - hostname: clickup-proxy.henrik-schumacher.de
+    path: ^/socket/(app|apps)(/.*)?$
+    service: http://127.0.0.1:8080
+  - hostname: clickup-proxy.henrik-schumacher.de
+    service: https://clickup-proxy.test
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: clickup-proxy.test
+  - hostname: machine.henrik-schumacher.de
+    service: https://pss-sales-local.test
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: pss-sales-local.test
   - service: http_status:404
